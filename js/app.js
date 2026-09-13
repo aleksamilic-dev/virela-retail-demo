@@ -11,6 +11,37 @@
   waLink.target = "_blank";
   waLink.rel = "noopener noreferrer";
   phoneDisplay.textContent = `+${phone}`;
+
+  // Viber contact: a viber:// deep link opens the Viber app to a chat with the
+  // account the desktop bridge is signed in as. Shown only when configured.
+  const viberLink = document.querySelector(".viber-link");
+  const viberNumber = config.VIBER_PHONE_NUMBER;
+  if (viberLink && viberNumber) {
+    const greeting = encodeURIComponent(config.VIBER_GREETING || "");
+    viberLink.href = `viber://chat?number=${encodeURIComponent("+" + viberNumber)}&text=${greeting}`;
+    viberLink.hidden = false;
+  }
+
+  // Viber call: viber://call dials the same account the desktop bridge is
+  // signed in as, and the bridge answers it with the AI agent. Reuses the
+  // chat number, so there is nothing extra to configure.
+  const viberCallLink = document.querySelector(".viber-call-link");
+  if (viberCallLink && viberNumber) {
+    viberCallLink.href = `viber://call?number=${encodeURIComponent("+" + viberNumber)}`;
+    viberCallLink.hidden = false;
+  }
+
+  // Telegram contact: a plain t.me link opens the bot's chat, where START
+  // sends /start and the bot replies with the menu. Shown only when
+  // configured, like Viber.
+  const telegramLink = document.querySelector(".telegram-link");
+  const telegramUser = config.TELEGRAM_BOT_USERNAME;
+  if (telegramLink && telegramUser) {
+    telegramLink.href = `https://t.me/${encodeURIComponent(telegramUser)}`;
+    telegramLink.target = "_blank";
+    telegramLink.rel = "noopener noreferrer";
+    telegramLink.hidden = false;
+  }
   document.querySelector("#year").textContent = new Date().getFullYear();
 
   const setPanel = (open) => { panel.classList.toggle("is-open", open); panel.setAttribute("aria-hidden", String(!open)); };
