@@ -4,7 +4,7 @@ const VIRELA_CONFIG = {
   WHATSAPP_GREETING: "Zdravo",
   // Viber number that the desktop bridge (viber_desktop) is signed in as.
   // Digits only, with country code — no "+". Empty string hides the option.
-  VIBER_PHONE_NUMBER: "381654041838",
+  VIBER_PHONE_NUMBER: "381653787219",
   VIBER_GREETING: "Zdravo",
   // Telegram bot username, without the "@". Empty string hides the option.
   // No greeting here: a t.me link cannot carry pre-filled text, and the bot
