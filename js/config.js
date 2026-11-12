@@ -1,6 +1,6 @@
 /* Promenite samo ovu vrednost pre objave sajta. Broj mora sadržati samo cifre sa pozivnim brojem države. */
 const VIRELA_CONFIG = {
-  WHATSAPP_PHONE_NUMBER: "381665528633",
+  WHATSAPP_PHONE_NUMBER: "381653787219",
   WHATSAPP_GREETING: "Zdravo",
   // Viber number that the desktop bridge (viber_desktop) is signed in as.
   // Digits only, with country code — no "+". Empty string hides the option.
